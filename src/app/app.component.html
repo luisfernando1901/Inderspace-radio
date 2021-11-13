@@ -3,7 +3,7 @@
 </div>
 
 <div class="fixed h-screen w-screen flex flex-col justify-between p-10 bg-transparent text-white">
-  <!--Cabecera-->
+  <!--Cabecera fixed-->
   <div class="invisible sm:visible fixed flex flex-row space-x-3">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
       <path
@@ -11,7 +11,7 @@
     </svg>
     <div class="flex flex-col">
       <button (click)="categories()" class="flex flex-row justify-between items-center border-2 rounded-full px-3 bg-transparent w-40">
-        <p>lofi</p>
+        <p>Electronic</p>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -28,28 +28,43 @@
     </div>
   </div>
 
-  <!--Centro-->
+  <!--Cabecera de texto-->
   <div class="flex flex-col text-center items-center">
     <p class="text-3xl mb-3 font-semibold">INDERSPACE RADIO</p>
-    <p>lofi jazz emo work millenians</p>
+    <p>{{station}} Station</p>
+  </div>
+
+  <!-- Controles de forward y backward-->
+  <div class="flex flex-row justify-between">
+    <button (click)="previousSong()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <button (click)="nextSong()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+      </svg>
+    </button>
+
   </div>
   <!--Pie de página-->
   <div class="flex flex-row flex-wrap justify-center space-y-3 sm:space-y-0 sm:justify-between">
     <!--Audio info-->
     <div class="flex flex-row items-center">
-      <button (click)="playSong()" *ngIf="play">
+      <button (click)="playPause()" *ngIf="play">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
             d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
             clip-rule="evenodd" />
         </svg>
       </button>
-      <button (click)="playSong()" *ngIf="!play">
+      <button (click)="playPause()" *ngIf="!play">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
         </svg>
       </button>
-      <p class="text-lg pl-8">Título de la canción</p>
+      <p class="text-lg pl-8">{{title}}</p>
     </div>
     <!--Audio controls-->
     <div class="flex flex-row space-x-3 items-center">
