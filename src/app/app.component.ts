@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'inderspace-radio';
+
+  showCategories = false;
+  play = true;
+
+  categories(){
+    console.log("showCategories");
+    this.showCategories = !this.showCategories;
+  }
+
+  playSong(){
+    console.log("playSong");
+    this.play = !this.play;
+  }
 }
