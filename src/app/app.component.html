@@ -1,16 +1,17 @@
-<div class="fixed h-screen w-screen">
+<div class="fixed z-0 h-full w-full">
   <img class="object-cover w-full h-full" src="../assets/images/background.jpg" alt="">
 </div>
 
-<div class="fixed h-screen w-screen flex flex-col justify-between p-10 bg-transparent text-white">
+<div class="fixed z-0 h-full w-full flex flex-col justify-between p-10 bg-transparent text-white">
   <!--Cabecera fixed-->
-  <div class="invisible sm:visible fixed flex flex-row space-x-3">
+  <div class="invisible sm:visible fixed flex flex-row items-start space-x-3">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
       <path
         d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
     </svg>
     <div class="flex flex-col">
-      <button (click)="categories()" class="flex flex-row justify-between items-center border-2 rounded-full px-3 bg-transparent w-40">
+      <button (click)="categories()"
+        class="flex flex-row justify-between items-center border-2 rounded-full px-3 bg-transparent w-40">
         <p>Electronic</p>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
@@ -20,12 +21,44 @@
       </button>
       <!--Categorias a elegir-->
       <div *ngIf="showCategories" class="flex flex-col items-start rounded-xl p-3 mt-3 bg-gray-400 bg-opacity-25">
-        <button class="hover:text-gray-400">Pop</button>
-        <button class="hover:text-gray-400">Chill</button>
-        <button class="hover:text-gray-400">Jazz</button>
-        <button class="hover:text-gray-400">Oxxo</button>
+        <button class="hover:text-gray-400">Blues-Jazz</button>
+        <button class="hover:text-gray-400 flex flex-row space-x-1">
+          <p>Chill</p>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="hover:text-gray-400 flex flex-row space-x-1">
+          <p>Soul</p>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="hover:text-gray-400 flex flex-row space-x-1">
+          <p>Lofi</p>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="hover:text-gray-400 flex flex-row space-x-1">
+          <p>House</p>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
       </div>
     </div>
+    <button (click)="showRegisterModal()">
+      Register
+    </button>
   </div>
 
   <!--Cabecera de texto-->
@@ -38,12 +71,16 @@
   <div class="flex flex-row justify-between">
     <button (click)="previousSong()">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+        <path fill-rule="evenodd"
+          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+          clip-rule="evenodd" />
       </svg>
     </button>
     <button (click)="nextSong()">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        <path fill-rule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          clip-rule="evenodd" />
       </svg>
     </button>
 
@@ -61,7 +98,9 @@
       </button>
       <button (click)="playPause()" *ngIf="!play">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+          <path fill-rule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
+            clip-rule="evenodd" />
         </svg>
       </button>
       <p class="text-lg pl-8">{{title}}</p>
@@ -86,4 +125,32 @@
       </svg>
     </div>
   </div>
+</div>
+
+<!--Modal-->
+<div *ngIf="showRegister"
+  class="fixed backdrop-filter backdrop-blur-sm flex flex-col h-full w-full z-20 justify-center items-center">
+  <div class="w-72 bg-white rounded-lg shadow-md p-6">
+    <div class="w-20 mx-auto relative -mt-14 mb-3">
+      <img class="-mt-1" src="../assets/icons/icono_inder_space.png" alt="cookie" />
+    </div>
+    <span class="w-full block leading-normal text-gray-800 text-md text-justify mb-3">
+      Regístrate para acceder a todas las categorías.
+    </span>
+    <div>
+      <input class="h-8 w-full bg-gray-200 rounded-lg mb-6 p-2 text-gray-600" type="email">
+    </div>
+    <div class="flex flex-row justify-center items-center text-center">
+      <div class="w-1/2">
+        <button type="button"
+          class="py-2 px-4 mb-3  bg-blue-500 hover:bg-blue-600 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+          Registrarme
+        </button>
+        <button (click)="cancelRegister()">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -19,6 +19,8 @@ export class AppComponent implements OnInit, OnDestroy {
   //Variable que contiene información de la canción
   title = '';
   station = '';
+  //Variable para mostrar el modal de registro
+  showRegister = false;
 
   constructor(private _mongodb: MongodbService) {
     this.getSongs();
@@ -106,4 +108,13 @@ export class AppComponent implements OnInit, OnDestroy {
     this.play = false;
   }
 
+  //Método para registrar a un nuevo usuario
+  showRegisterModal(){
+    this.showRegister = true;
+  }
+
+  //Método para cancelar el registro
+  cancelRegister(){
+    this.showRegister = false;
+  }
 }
