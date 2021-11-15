@@ -1,5 +1,5 @@
 <div class="fixed z-0 h-full w-full">
-  <img class="object-cover w-full h-full" src="../assets/images/background.jpg" alt="">
+  <img class="object-cover w-full h-full" [src]="bg_image" alt="">
 </div>
 
 <div class="fixed z-0 h-full w-full flex flex-col justify-between p-10 bg-transparent text-white">
@@ -12,7 +12,7 @@
     <div class="flex flex-col">
       <button (click)="categories()"
         class="flex flex-row justify-between items-center border-2 rounded-full px-3 bg-transparent w-40">
-        <p>Electronic</p>
+        <p>{{genrePlaying}}</p>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -21,34 +21,9 @@
       </button>
       <!--Categorias a elegir-->
       <div *ngIf="showCategories" class="flex flex-col items-start rounded-xl p-3 mt-3 bg-gray-400 bg-opacity-25">
-        <button class="hover:text-gray-400">Blues-Jazz</button>
-        <button class="hover:text-gray-400 flex flex-row space-x-1">
-          <p>Chill</p>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-              clip-rule="evenodd" />
-          </svg>
-        </button>
-        <button class="hover:text-gray-400 flex flex-row space-x-1">
-          <p>Soul</p>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-              clip-rule="evenodd" />
-          </svg>
-        </button>
-        <button class="hover:text-gray-400 flex flex-row space-x-1">
-          <p>Lofi</p>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-              clip-rule="evenodd" />
-          </svg>
-        </button>
-        <button class="hover:text-gray-400 flex flex-row space-x-1">
-          <p>House</p>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <button *ngFor="let genreType of genreTypes" (click)="changeGenreType(genreType)" class="hover:text-gray-400 flex flex-row space-x-1">
+          <p>{{genreType.genre}}</p>
+          <svg *ngIf="!(genreType.available)" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"
               d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
               clip-rule="evenodd" />

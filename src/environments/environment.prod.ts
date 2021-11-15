@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  devUrl: 'http://localhost:3000',
-  prodUrl: 'https://inderspace-radio.uc.r.appspot.com'
+  //baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://inderspace-radio.uc.r.appspot.com'
 };

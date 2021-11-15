@@ -9,7 +9,7 @@ import { MongodbService } from './services/mongodb/mongodb.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  soundSrc:any;
+  soundSrc: any;
   showCategories = false;
   play = true;
   //Variable que contiene las canciones
@@ -21,9 +21,40 @@ export class AppComponent implements OnInit, OnDestroy {
   station = '';
   //Variable para mostrar el modal de registro
   showRegister = false;
+  //Variable que guarda la categoría de canción actual
+  genrePlaying = '';
+  //Categorías de música disponible
+  genreTypes = [
+    {
+      genre: 'Electronic',
+      available: true
+    },
+    {
+      genre: 'Blues-Jazz',
+      available: true
+    },
+    {
+      genre: 'Mexican-lofi',
+      available: true
+    },
+    {
+      genre: 'Chill',
+      available: false
+    },
+    {
+      genre: 'Soul',
+      available: false
+    },
+    {
+      genre: 'Lofi',
+      available: false
+    }
+  ];
+  //Variable que contiene el urlSrc de la imagen de fondo
+  bg_image = 'https://storage.googleapis.com/inderspace-music-source/bg-images/background.jpg';
 
   constructor(private _mongodb: MongodbService) {
-    this.getSongs();
+    this.getSongs('Electronic');
   }
 
   ngOnInit(): void {
@@ -36,22 +67,23 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   //Método para obtener las canciones de la BD
-  async getSongs() {
-    this.musicPlaylist = await this._mongodb.getSongsByCategory('electronic');
+  async getSongs(genre: string) {
+    this.musicPlaylist = await this._mongodb.getSongsByCategory(genre);
+    this.bg_image = this.musicPlaylist.songs[this.audioNumber].bgSrc;
+    this.genrePlaying = genre;
     let songSrc = this.musicPlaylist.songs[this.audioNumber].audioSrc;
     //Mostramos el título y nombre de la estación
     this.title = this.musicPlaylist.songs[this.audioNumber].title;
     this.station = this.musicPlaylist.songs[this.audioNumber].station;
-      this.soundSrc = new Howl({
-        src: [songSrc],
-        html5: true //Debe estar en true para que no haya error de CORS con el bucket storage
-      });
+    this.soundSrc = new Howl({
+      src: [songSrc],
+      html5: true //Debe estar en true para que no haya error de CORS con el bucket storage
+    });
     console.log(this.musicPlaylist);
   }
 
   //Método para mostrar categorías
   categories() {
-    console.log("showCategories");
     this.showCategories = !this.showCategories;
   }
 
@@ -77,6 +109,7 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.audioNumber >= this.musicPlaylist.songs.length) {
       this.audioNumber = 0;
     }
+    this.bg_image = this.musicPlaylist.songs[this.audioNumber].bgSrc;
     let songSrc = this.musicPlaylist.songs[this.audioNumber].audioSrc;
     this.title = this.musicPlaylist.songs[this.audioNumber].title;
     this.station = this.musicPlaylist.songs[this.audioNumber].station;
@@ -97,6 +130,7 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.audioNumber < 0) {
       this.audioNumber = this.musicPlaylist.songs.length - 1;
     }
+    this.bg_image = this.musicPlaylist.songs[this.audioNumber].bgSrc;
     let songSrc = this.musicPlaylist.songs[this.audioNumber].audioSrc;
     this.title = this.musicPlaylist.songs[this.audioNumber].title;
     this.station = this.musicPlaylist.songs[this.audioNumber].station;
@@ -109,12 +143,25 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   //Método para registrar a un nuevo usuario
-  showRegisterModal(){
+  showRegisterModal() {
     this.showRegister = true;
   }
 
   //Método para cancelar el registro
-  cancelRegister(){
+  cancelRegister() {
     this.showRegister = false;
   }
+
+  //Método para cambiar de categoría de canciones
+  async changeGenreType(genreInfo: any) {
+    if (genreInfo.available == true) {
+      this.audioNumber = 0;
+      this.soundSrc.stop();
+      this.soundSrc.unload();
+      console.log(genreInfo);
+      await this.getSongs(genreInfo.genre)
+      this.play = true;
+    }
+  }
+
 }

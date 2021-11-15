@@ -10,7 +10,8 @@ export class MongodbService {
 
   //Método para obtener las canciones por categoría
   async getSongsByCategory(category: string) {
-    let response = await this.http.get(`${environment.prodUrl}/getSongs/${category}`).toPromise();
+    category = category.toLowerCase();
+    let response = await this.http.get(`${environment.baseUrl}/getSongs/${category}`).toPromise();
     return response;
   }
 }
