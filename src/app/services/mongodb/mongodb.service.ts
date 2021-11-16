@@ -14,4 +14,19 @@ export class MongodbService {
     let response = await this.http.get(`${environment.baseUrl}/getSongs/${category}`).toPromise();
     return response;
   }
+
+  //Método para registrar el correo del usuario
+  async registerEmail(email: string) {
+    let send = {
+      email: email
+    };
+    let response = await this.http.post(`${environment.baseUrl}/registerEmail`, send).toPromise();
+    return response;
+  }
+
+  //Método para obtener los correos registrados
+  async getRegisteredEmails() {
+    let response:any = await this.http.get(`${environment.baseUrl}/getRegisteredEmails`).toPromise();
+    return response;
+  }
 }
