@@ -1,0 +1,47 @@
+<div class="flex flex-col justify-center h-screen bg-blue-800">
+    <div class="w-full flex flex-col shadow-xl justify-center max-w-sm p-6 m-auto bg-white rounded-md dark:bg-gray-800">
+        <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">Registro</h1>
+
+        <form class="mt-6" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
+            <div class="py-1">
+                <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Nombre completo</label>
+                <input formControlName="fullName" type="text"
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+            <div class="py-1">
+                <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Correo</label>
+                <input formControlName="email" type="email"
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+            <div class="py-1">
+                <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Contraseña</label>
+                <input formControlName="password" type="password"
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+            <div class="py-1">
+                <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Tipo de usuario</label>
+                <select formControlName="userType"
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    <option value="Músico o artista">Músico o artista</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Productor musical">Productor musical</option>
+                    <option value="Estación de radio">Estación de radio</option>
+                    <option value="Festival o evento">Festival o evento</option>
+                    <option value="Marca o empresa">Marca o empresa</option>
+                    <option value="Agencia de publicidad">Agencia de Publicidad</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="py-1">
+                <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Link de Twitter, Instagram
+                    o Linkedin</label>
+                <input formControlName="socialUrl" type="text"
+                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            </div>
+            <button type="submit"
+                class="w-full px-4 py-2 mt-6 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+                Enviar registro
+            </button>
+        </form>
+    </div>
+</div>

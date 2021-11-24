@@ -8,12 +8,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlayerComponent } from './components/player/player.component';
 import { ShowEmailsComponent } from './components/show-emails/show-emails.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    ShowEmailsComponent
+    ShowEmailsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

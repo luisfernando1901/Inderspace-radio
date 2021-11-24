@@ -24,6 +24,12 @@ export class MongodbService {
     return response;
   }
 
+  //Método para registrar nuevo usuario
+  async registerUser(user: object) {
+    let response = await this.http.post(`${environment.baseUrl}/registerUser`, user).toPromise();
+    return response;
+  }
+
   //Método para obtener los correos registrados
   async getRegisteredEmails() {
     let response:any = await this.http.get(`${environment.baseUrl}/getRegisteredEmails`).toPromise();
