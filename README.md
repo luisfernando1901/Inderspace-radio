@@ -1,27 +1,56 @@
 # InderspaceRadio
+### Overview
+Presentamos… [**INDER SPACE RADIO**](https://radio.inderspace.com/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
+Una plataforma de música en formato largo tipo LO-FI para developers (desarrolladores), streamers y estudiantes.
 
-## Development server
+La música es un elemento clave en la vida de las personas. Y se ha convertido en una herramienta que es necesaria para trabajar, entretenernos y estudiar.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Existe un problema con las plataformas actuales de streaming de música. El ***copyright*** (derechos de autor).
 
-## Code scaffolding
+Y es que sabemos que las plataformas como youtube, twitch y otras son muy estrictas con con los derechos de autor y castigan a los usuarios que por error comparten una canción comercial, desmonetizando el contenido y echando a perder el trabajo de a veces horas de nosotros los usuarios.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Por otro lado, escuchar música continua se ha vuelto un reto para los usuarios, pues las plataformas como youtube o spotify insertan comerciales a la menor provocación cortando la concentración de lo que estamos haciendo. De nada sirve poner una estación lofi de youtube si cada cierto tiempo debemos dar clic en el botón ***“skip”***. Y spotify sabemos que debemos tener una membresía premium para eliminar comerciales, al final terminamos pagando de una u otra manera poder escuchar música.
 
-## Build
+Ahora bien, nos hemos pregunta… ¿Dónde queda toda esa música de artistas independientes? Por qué siempre terminamos escuchando la misma música comercial que los algoritmos se esfuerzan en implantarnos siempre beneficiando a las grandes disqueras y no al músico realmente.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Es por eso que decidimos lanzar **INDER SPACE RADIO,** una plataforma de música independiente en formato largo, que incluye música LO-FI, sets completos de música electrónica, música conceptual y música independiente que pueda compartirse o trasmitirse en plataformas de streaming.
 
-## Running unit tests
+Nuestro objetivo es crear comunidad alrededor de la música independiente, y libre de derechos de autor o al menos con licencia para compartirla online.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para conseguirlo lanzamos una plataforma por el momento cerrada con música curada por INDER SPACE, pero que en breve abriremos a la comunidad para que puedan hacer sus aportaciones musicales para crecer el catálogo gratuito.
 
-## Running end-to-end tests
+Nuestra arquitectura de software contempla un Front-end desarrollado en angular 12, servicios de Google Cloud Plataform para el Backend (servidor y API's) con instancias dinámicas que escalan en base a nuestra demanda y el servicio de base de datos de Mongo DB donde están todas nuestras colecciones de estaciones de radio, primero se empezó con una base de datos "dedicated" pero luego se migró a una "Serverless" que se adecúa a nuestro crecimiento y rinde de acuerdo a la demanda de solicitudes de la aplicación.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Queremos invitar a toda la comunidad a sumarse a nuestro proyecto que por el momento es abierto para todos. Compartimos nuestro repositorio si quieres replicar o mejorar el proyecto.
 
-## Further help
+Para finalizar este post nos gustaría puedas probar nuestra plataforma y registrarte como usuario BETA.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+También puedes ponerte en contacto con nosotros a través de nuestro chat de soporte  **[@soporteradiobot en telegram](https://t.me/soporteradiobot).**
+
+Esperamos disfrutes **[INDER SPACE RADIO](https://radio.inderspace.com/).**
+
+[**radio.inderspace.com**](https://radio.inderspace.com/)
+
+Team INDER SPACE RADIO.
+
+
+### Submission Category: 
+
+Our Category: Entertainment, productivity, streaming.
+
+
+### Link to Code
+
+Visit URL: [**https://github.com/luisfernando1901/Inderspace-radio**](https://github.com/luisfernando1901/Inderspace-radio) 
+
+
+### Additional Resources / Info
+Live Project:
+[**https://radio.inderspace.com/**](https://radio.inderspace.com/)
+
+Screenshots:
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/o7pg7ht4zti970013vg2.png)
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pofu5ozuzo2jjtjbgfil.png)
