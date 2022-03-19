@@ -1,0 +1,26 @@
+<div class="flex flex-col space-y-6" [formGroup]="newStationForm">
+    <p class="text-3xl font-bold">Crear nueva estación de radio</p>
+    <ngx-dropzone (change)="onSelect($event)">
+        <ngx-dropzone-label>Subir imagen</ngx-dropzone-label>
+        <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-preview>
+    </ngx-dropzone>
+    <!--Nombre de estación de radio-->
+    <input class="text-3xl w-full px-6 h-16 focus:outline-white" formControlName="stationName" type="text" placeholder="Nombre estación de radio">
+    <!--Nombre de los audios-->
+    <div formArrayName="audios">
+        <div *ngFor="let audioForm of audios.controls; let i = index" class="px-10 space-y-3">
+            <div [formGroupName]="i">
+                <input class="text-xl w-full focus:outline-white" formControlName="title" type="text" placeholder="Nombre del audio">
+                <input type="file" formControlName="audioSrc"> 
+            </div>
+        </div>
+    </div>
+    <!--Botón para añadir nuevo audio-->
+    <button (click)="addFileInput()" class="flex flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+    </button>
+</div>

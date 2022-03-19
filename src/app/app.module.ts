@@ -10,6 +10,9 @@ import { PlayerComponent } from './components/player/player.component';
 import { ShowEmailsComponent } from './components/show-emails/show-emails.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NewStationComponent } from './components/new-station/new-station.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,16 @@ import { LoginComponent } from './components/login/login.component';
     PlayerComponent,
     ShowEmailsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    NewStationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDropzoneModule
   ],
   providers: [
     MongodbService
